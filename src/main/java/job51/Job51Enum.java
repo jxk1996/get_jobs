@@ -12,6 +12,7 @@ public class Job51Enum {
         SHANGHAI("上海", "020000"),
         GUANGZHOU("广州", "030200"),
         SHENZHEN("深圳", "040000"),
+        HANGZHOU("杭州", "040000"),
         CHENGDU("成都", "090200");
         private final String name;
         private final String code;

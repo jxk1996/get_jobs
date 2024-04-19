@@ -12,6 +12,7 @@ public class ZhilianEnum {
         SHANGHAI("上海", "538"),
         GUANGZHOU("广州", "763"),
         SHENZHEN("深圳", "765"),
+        HANGZHOU("杭州", "653"),
         CHENGDU("成都", "801");
 
         private final String name;

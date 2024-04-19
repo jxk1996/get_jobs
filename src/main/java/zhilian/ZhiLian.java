@@ -86,7 +86,7 @@ public class ZhiLian {
             // 保存投递的岗位
             List<Job> positions = getPositionList();
             submit.click();
-            SeleniumUtil.sleep(1);
+            SeleniumUtil.sleep(10);
             // 切换到新的标签页
             ArrayList<String> tabs = new ArrayList<>(CHROME_DRIVER.getWindowHandles());
             CHROME_DRIVER.switchTo().window(tabs.get(tabs.size() - 1));
