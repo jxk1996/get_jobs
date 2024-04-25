@@ -219,6 +219,9 @@ public class ZhiLian {
             if(!job.getJobArea().contains("杭州")){
                 continue;
             }
+            if (!job.getCompanyName().contains("杭州")){
+                continue;
+            }
             result.add(job);
             log.info("选中【{}】公司【{}】岗位，【{}】地区，薪资【{}】，标签【{}】，HR【{}】", job.getCompanyName(), job.getJobName(), job.getJobArea(), job.getSalary(), job.getCompanyTag(), job.getRecruiter());
         }
