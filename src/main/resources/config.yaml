@@ -30,4 +30,4 @@ liepin:
 zhilian:
   cityCode: "杭州"
   salary: "15000,20000" #薪资区间
-  keywords: ["Java"]
+  keywords: ["中级Java"]

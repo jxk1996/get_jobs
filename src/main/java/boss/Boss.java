@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 import utils.Job;
 import utils.JobUtils;
 import utils.SeleniumUtil;
@@ -232,11 +233,18 @@ public class Boss {
                 // 排除黑名单公司
                 continue;
             }
+            if (!StringUtils.isEmpty(jobName)&& !jobName.contains("Java")){
+                continue;
+            }
             Job job = new Job();
             job.setRecruiter(recruiterText.replace(recruiterName, "") + ":" + recruiterName);
             job.setHref(jobCard.findElement(By.cssSelector("a")).getAttribute("href"));
             job.setJobName(jobName);
-            job.setJobArea(jobCard.findElement(By.cssSelector("div.job-title span.job-area")).getText());
+            String jobArea = jobCard.findElement(By.cssSelector("div.job-title span.job-area")).getText();
+            if (!StringUtils.isEmpty(jobArea) && !jobArea.contains("杭州")){
+                continue;
+            }
+            job.setJobArea(jobArea);
             job.setSalary(jobCard.findElement(By.cssSelector("div.job-info span.salary")).getText());
             List<WebElement> tagElements = jobCard.findElements(By.cssSelector("div.job-info ul.tag-list li"));
             StringBuilder tag = new StringBuilder();
