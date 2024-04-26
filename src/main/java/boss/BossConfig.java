@@ -25,6 +25,11 @@ public class BossConfig {
     private String cityCode;
 
     /**
+     * 地区编码
+     */
+    private List<String> areaCode;
+
+    /**
      * 行业列表
      */
     private List<String> industry;
@@ -64,6 +69,7 @@ public class BossConfig {
         BossConfig config = JobUtils.getConfig(BossConfig.class);
         // 转换城市编码
         config.setCityCode(BossEnum.CityCode.forValue(config.getCityCode()).getCode());
+        config.setAreaCode(config.getAreaCode().stream().map(value -> BossEnum.Area.forValue(value).getCode()).collect(Collectors.toList()));
         // 转换工作类型
         config.setJobType(BossEnum.JobType.forValue(config.getJobType()).getCode());
         // 转换薪资范围

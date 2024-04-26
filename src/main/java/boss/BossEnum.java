@@ -51,6 +51,7 @@ public class BossEnum {
         GUANGZHOU("广州", "101280100"),
         SHENZHEN("深圳", "101280600"),
         HANGZHOU("杭州", "101210100"),
+        WUHAN("武汉", "101200100"),
         CHENGDU("成都", "101270100");
 
         private final String name;
@@ -72,6 +73,38 @@ public class BossEnum {
         }
 
     }
+    @Getter
+    public enum Area {
+        NULL("不限", "0"),
+        BINGJIANG("滨江区", "330108"),
+        XIHU("西湖区", "330106"),
+        GONGSHU("拱墅区", "330105"),
+        XIAOSHAN("萧山区","330109"),
+        SHANGCHNEG("上城区","330102"),
+        JIANGAN("江岸区","420102"),
+        JIANGHAN("江汉区","420111"),
+        HONGSHAN("洪山区","420106"),
+        WUCHANG("武昌区","330109");
+        private final String name;
+        private final String code;
+
+        Area(String name, String code) {
+            this.name = name;
+            this.code = code;
+        }
+
+        @JsonCreator
+        public static Area forValue(String value) {
+            for (Area area : Area.values()) {
+                if (area.name.equals(value)) {
+                    return area;
+                }
+            }
+            return NULL;
+        }
+    }
+
+
 
     @Getter
     public enum JobType {

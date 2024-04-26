@@ -94,14 +94,18 @@ public class Boss {
     }
 
     private static String getSearchUrl() {
-        return baseUrl +
-                JobUtils.appendParam("city", config.getCityCode()) +
-                JobUtils.appendParam("jobType", config.getJobType()) +
+        String s = baseUrl +
+                JobUtils.appendParam("city", config.getCityCode());
+        if (!StringUtils.isEmpty(config.getAreaCode())) {
+            s = s + JobUtils.appendListParam("areaBusiness", config.getAreaCode());
+        }
+        s = s + JobUtils.appendParam("jobType", config.getJobType()) +
                 JobUtils.appendParam("salary", config.getSalary()) +
                 JobUtils.appendListParam("experience", config.getExperience()) +
                 JobUtils.appendListParam("degree", config.getDegree()) +
                 JobUtils.appendListParam("scale", config.getScale()) +
                 JobUtils.appendListParam("stage", config.getStage());
+        return s;
     }
 
     private static void saveData(String path) {
@@ -241,9 +245,6 @@ public class Boss {
             job.setHref(jobCard.findElement(By.cssSelector("a")).getAttribute("href"));
             job.setJobName(jobName);
             String jobArea = jobCard.findElement(By.cssSelector("div.job-title span.job-area")).getText();
-            if (!StringUtils.isEmpty(jobArea) && !jobArea.contains("杭州")){
-                continue;
-            }
             job.setJobArea(jobArea);
             job.setSalary(jobCard.findElement(By.cssSelector("div.job-info span.salary")).getText());
             List<WebElement> tagElements = jobCard.findElements(By.cssSelector("div.job-info ul.tag-list li"));
