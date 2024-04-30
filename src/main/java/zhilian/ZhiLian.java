@@ -45,7 +45,7 @@ public class ZhiLian {
         return homeUrl +
                 JobUtils.appendParam("jl", config.getCityCode()) +
                 JobUtils.appendParam("kw", keyword) +
-                JobUtils.appendParam("sl", config.getSalary()) +
+                JobUtils.appendParam("sl", "15001%2C25000") +
                 "&p=" + page;
     }
 

@@ -81,6 +81,7 @@ public class BossEnum {
         GONGSHU("拱墅区", "330105"),
         XIAOSHAN("萧山区","330109"),
         SHANGCHNEG("上城区","330102"),
+        YUHANG("余杭区","330110"),
         JIANGAN("江岸区","420102"),
         JIANGHAN("江汉区","420111"),
         HONGSHAN("洪山区","420106"),
@@ -255,7 +256,8 @@ public class BossEnum {
         NULL("不限", "0"),
         INTERNET("互联网", "100020"),
         COMPUTER_SOFTWARE("计算机软件", "100021"),
-        CLOUD_COMPUTING("云计算", "100029");
+        CLOUD_COMPUTING("云计算", "100029"),
+        TONGXING("通信","101402");
 
         private final String name;
         private final String code;

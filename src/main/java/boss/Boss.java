@@ -99,6 +99,9 @@ public class Boss {
         if (!StringUtils.isEmpty(config.getAreaCode())) {
             s = s + JobUtils.appendListParam("areaBusiness", config.getAreaCode());
         }
+        if (!StringUtils.isEmpty(config.getIndustry())) {
+            s = s + JobUtils.appendListParam("industry", config.getIndustry());
+        }
         s = s + JobUtils.appendParam("jobType", config.getJobType()) +
                 JobUtils.appendParam("salary", config.getSalary()) +
                 JobUtils.appendListParam("experience", config.getExperience()) +
